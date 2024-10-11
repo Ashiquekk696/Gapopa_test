@@ -6,7 +6,4 @@ class MyTextStyle {
     fontWeight: FontWeight.bold,
     color: Colors.black,
   );
- 
-
-  // Add more text styles as needed...
 }

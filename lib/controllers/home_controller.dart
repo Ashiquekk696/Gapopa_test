@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:flutter/material.dart'; 
 import 'package:get/get.dart';
 import '../models/home_model.dart';
 import '../services/home_service.dart';
@@ -7,15 +6,15 @@ import '../services/home_service.dart';
 class HomeController extends GetxController {
   HomeService myGridService = HomeService();
   var isLoading = false.obs;
-    var isPageUpdating = false.obs;
+  var isPageUpdating = false.obs;
   var currentPage = 1.obs;
   late var gridData = <HomeModel>[].obs;
   final ScrollController scrollController = ScrollController();
 
   @override
   void onInit() async {
-    fetchItems();
     super.onInit();
+    fetchItems();
     scrollController.addListener(() {
       if (scrollController.position.pixels ==
           scrollController.position.maxScrollExtent) {
@@ -26,22 +25,22 @@ class HomeController extends GetxController {
 
   Future<void> fetchItems() async {
     try {
-      if (gridData.value.isEmpty) {
+      if (gridData.isEmpty) {
         isLoading(true);
       }
       final data = await myGridService.fetchItems(currentPage.value);
       gridData.addAll(data);
-    } catch (e) { 
+    } catch (e) {
     } finally {
       isLoading(false);
     }
   }
 
-  void nextPage()async {
+  void nextPage() async {
     currentPage.value++;
-    isPageUpdating.value=true;
+    isPageUpdating.value = true;
     await fetchItems();
-    isPageUpdating.value=false;
+    isPageUpdating.value = false;
     update();
   }
 }

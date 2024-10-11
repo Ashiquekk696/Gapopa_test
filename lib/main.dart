@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'constants/colors.dart';
-import 'views/home_view.dart';
+import 'views/home/home_view.dart';
 
 void main() {
   runApp(const MyApp());
