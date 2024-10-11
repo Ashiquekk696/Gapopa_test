@@ -21,12 +21,13 @@ class ImageList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      controller: controller.scrollController,
+      controller: controller.scrollController, 
+      physics: const AlwaysScrollableScrollPhysics(),
       itemCount: controller.gridData.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: columnsCount,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
+        crossAxisSpacing: 5,
+        mainAxisSpacing: 5,
       ),
       itemBuilder: (context, index) {
         final HomeModel item = controller.gridData[index];
