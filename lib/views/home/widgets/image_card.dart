@@ -18,6 +18,7 @@ class ImageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        //Navigating to Full screen
         Get.to(FullScreenView(imageUrl: item.largeImageURL,));
       },
       child: ClipRRect(
