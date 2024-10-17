@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:gapopa_test/views/home/widgets/full_screen_view.dart';
+import 'package:gapopa_test/features/home/presentation/widgets/full_screen_view.dart';
 import 'package:get/get.dart';
-import '../../../models/home_model.dart';
+import '../../data/models/home_model.dart';
 
 class ImageCard extends StatelessWidget {
   const ImageCard({

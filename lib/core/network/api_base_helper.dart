@@ -2,10 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gapopa_test/core/error/exceptions.dart';
 import 'package:http/http.dart' as http;
-import '../constants/endpoints.dart';
-import 'exceptions.dart';
 
+import '../utils/endpoints.dart';
+ 
 class ApiBaseHelper {
   Future<dynamic> get(String endPoint) async {
     var responseJson;
@@ -25,8 +26,7 @@ class ApiBaseHelper {
   dynamic _returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
-        var responseJson = json.decode(response.body.toString());
-        print(responseJson);
+        var responseJson = json.decode(response.body.toString()); 
         return responseJson;
       case 400:
         throw BadRequestException(response.body.toString());

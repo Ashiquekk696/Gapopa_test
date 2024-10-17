@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../constants/text_style.dart';
-import '../../controllers/home_controller.dart';
-import 'widgets/image_list.dart';
+import '../../../../core/utils/text_style.dart';
+import '../controllers/home_controller.dart';
+import '../widgets/image_list.dart';
 
-class HomeView extends GetView {
-  const HomeView({super.key});
+class HomePage extends GetView<HomeController> {
+  const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    var controller = Get.put<HomeController>(HomeController());
+  Widget build(BuildContext context) { 
 
     // Determine screen width and device type (mobile or web)
     double screenWidth = MediaQuery.sizeOf(context).width;

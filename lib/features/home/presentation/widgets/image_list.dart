@@ -1,10 +1,10 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:gapopa_test/controllers/home_controller.dart';
-import 'package:gapopa_test/views/home/widgets/image_card.dart';
+import 'package:gapopa_test/features/home/presentation/controllers/home_controller.dart';
+import 'package:gapopa_test/features/home/presentation/widgets/image_card.dart';
 
-import '../../../models/home_model.dart';
+import '../../data/models/home_model.dart';
 
 class ImageList extends StatelessWidget {
   const ImageList({

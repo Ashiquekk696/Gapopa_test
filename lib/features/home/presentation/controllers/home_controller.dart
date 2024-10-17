@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart'; 
 import 'package:get/get.dart';
-import '../models/home_model.dart';
-import '../services/home_service.dart';
+import '../../data/models/home_model.dart'; 
+import '../../domain/usecases/gethomedata.dart';
 
 class HomeController extends GetxController {
-  HomeService myGridService = HomeService();
+  GetHomeData homeData;
+  HomeController(this.homeData);
   var isLoading = false.obs;
   var isPageUpdating = false.obs;
   var currentPage = 1.obs;
   late var gridData = <HomeModel>[].obs;
-  final ScrollController scrollController = ScrollController();
-
+  final ScrollController scrollController = ScrollController(); 
   @override
   void onInit() async {
     super.onInit();
@@ -25,10 +25,10 @@ class HomeController extends GetxController {
 
   Future<void> fetchItems() async {
     try {
-      if (gridData.isEmpty) {
+        if (gridData.isEmpty) {
         isLoading(true);
-      }
-      final data = await myGridService.fetchItems(currentPage.value);
+     }
+      final data = await homeData.getData(currentPage.value, isLoading);
       gridData.addAll(data);
     } catch (e) {
     } finally {
@@ -36,11 +36,15 @@ class HomeController extends GetxController {
     }
   }
 
-  void nextPage() async {
+
+ 
+  void nextPage() async { 
     currentPage.value++;
     isPageUpdating.value = true;
-    await fetchItems();
+   await fetchItems(); 
     isPageUpdating.value = false;
-    update();
+ 
   }
 }
+
+ 
